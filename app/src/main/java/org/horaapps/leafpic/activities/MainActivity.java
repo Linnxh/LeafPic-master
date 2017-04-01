@@ -308,11 +308,11 @@ public class MainActivity extends SharedMediaActivity {
     rvMedia.setAdapter(mediaAdapter);
 
     int spanCount = SP.getInt("n_columns_folders", 2);
-    rvAlbumsDecoration = new GridSpacingItemDecoration(spanCount, Measure.pxToDp(3, getApplicationContext()), true);
+    rvAlbumsDecoration = new GridSpacingItemDecoration(spanCount, Measure.pxToDp(30, getApplicationContext()), true);
     rvAlbums.addItemDecoration(rvAlbumsDecoration);
     rvAlbums.setLayoutManager(new GridLayoutManager(this, spanCount));
 
-    spanCount = SP.getInt("n_columns_media", 3);
+    spanCount = SP.getInt("n_columns_media", 4);
     rvMediaDecoration = new GridSpacingItemDecoration(spanCount, Measure.pxToDp(3, getApplicationContext()), true);
     rvMedia.setLayoutManager(new GridLayoutManager(getApplicationContext(), spanCount));
     rvMedia.addItemDecoration(rvMediaDecoration);

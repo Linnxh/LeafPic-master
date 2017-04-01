@@ -37,6 +37,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/media_player_anchor"
         android:layout_gravity="bottom"
+        android:orientation="vertical"
         />
 
 </FrameLayout>

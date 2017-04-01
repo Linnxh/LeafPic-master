@@ -33,6 +33,7 @@ import com.bumptech.glide.Glide;
 import com.mikepenz.community_material_typeface_library.CommunityMaterial;
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import com.yalantis.ucrop.UCrop;
+import com.yalantis.ucrop.UCropActivity;
 
 import org.horaapps.leafpic.R;
 import org.horaapps.leafpic.SelectAlbumBottomSheet;
@@ -417,7 +418,7 @@ public class SingleMediaActivity extends SharedMediaActivity {
                 startActivity(Intent.createChooser(share, getString(R.string.send_to)));
                 return true;
 
-            case R.id.action_edit:
+            case R.id.action_edit:/**图片剪裁 UCrop**/
                 Uri mDestinationUri = Uri.fromFile(new File(getCacheDir(), "croppedImage.png"));
                 Uri uri = Uri.fromFile(new File(getAlbum().getCurrentMedia().getPath()));
                 UCrop uCrop = UCrop.of(uri, mDestinationUri);
@@ -535,7 +536,7 @@ public class SingleMediaActivity extends SharedMediaActivity {
                 renameDialog.show();
                 break;
 
-            case R.id.action_edit_with:
+            case R.id.action_edit_with:/***编辑 美化处理，调用系统命令**/
                 Intent editIntent = new Intent(Intent.ACTION_EDIT);
                 editIntent.setDataAndType(getAlbum().getCurrentMedia().getUri(), getAlbum().getCurrentMedia().getMimeType());
                 editIntent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
@@ -593,7 +594,7 @@ public class SingleMediaActivity extends SharedMediaActivity {
         options.setStatusBarColor(isTranslucentStatusBar() ? ColorPalette.getObscuredColor(getPrimaryColor()) : getPrimaryColor());
         options.setCropFrameColor(getAccentColor());
         options.setFreeStyleCropEnabled(true);
-
+        options.setAllowedGestures(UCropActivity.SCALE,UCropActivity.NONE,1);
         return options;
     }
 

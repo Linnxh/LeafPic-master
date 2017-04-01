@@ -1,0 +1,6 @@
+视频播放--->exoplayer
+图片剪裁--->UCrop
+自定义主题
+使用谷歌官方的图标---->IconicsImageView
+菜单menu的使用，可以重写invalidateOptionsMenu动态改变当前activity的菜单
+
